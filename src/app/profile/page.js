@@ -7,7 +7,7 @@ const ProfilePage = async () => {
     headers: await headers(),
   });
 
-  const user = session.user;
+  const user = session?.user;
 
   return (
     <div className="container mx-auto my-20 flex justify-center">

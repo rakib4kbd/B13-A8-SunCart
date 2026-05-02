@@ -4,7 +4,7 @@ import Link from "next/link";
 const ProductDetail = ({ product }) => {
   return (
     <div className="container mx-auto my-20 px-4">
-      <div className="flex flex-row border rounded-2xl">
+      <div className="flex flex-row border border-amber-500 rounded-2xl">
         <div className="p-6 flex flex-col relative">
           <div className="absolute flex w-full justify-start bottom-10 -right-10">
             {product.popular && (

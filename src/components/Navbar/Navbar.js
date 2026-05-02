@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Logo from "../Logo/Logo";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { CircleUserRound } from "lucide-react";
 import { signOut, useSession } from "@/lib/auth-client";
 
@@ -15,7 +15,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { data, isPending } = useSession();
   const user = data?.user;
-
+  const router = useRouter();
   return (
     <div className="navbar bg-base-100 shadow-sm px-2 md:px-5">
       <div className="navbar-start">
@@ -95,6 +95,7 @@ const Navbar = () => {
                 <button
                   onClick={async () => {
                     await signOut();
+                    router.refresh();
                   }}
                 >
                   Log Out

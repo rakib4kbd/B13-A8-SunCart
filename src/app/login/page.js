@@ -9,13 +9,14 @@ import { useSearchParams } from "next/navigation";
 const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const params = useSearchParams();
+  console.log(params.get("callbackUrl"));
 
   const onSubmit = async (formData) => {
     const { email, password } = formData;
     const { data, error } = await authClient.signIn.email({
       email: email,
       password: password,
-      callbackURL: params.get("callbackUrl"),
+      callbackURL: params.get("callbackUrl") || "/",
     });
   };
 

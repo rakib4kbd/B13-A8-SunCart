@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const Profile = ({ user }) => {
   return (
-    <div className="card w-full shadow-xl">
+    <div className="card w-full border border-amber-500 shadow-xl">
       <figure />
 
       <div className="card-body items-center text-center">
-        {user.image ? (
+        {user?.image ? (
           <div className="border border-amber-500 rounded-full ">
             <Image
-              src={user.image}
-              alt={user.name}
+              src={user?.image}
+              alt={user?.name}
               width={200}
               height={200}
               className="rounded-full"
@@ -26,12 +26,12 @@ const Profile = ({ user }) => {
         )}
 
         <div className="flex flex-col items-center justify-center">
-          <h2 className="card-title text-xl font-bold">{user.name}</h2>
+          <h2 className="card-title text-xl font-bold">{user?.name}</h2>
 
-          <p className="text-black/50 text-sm">{user.email}</p>
+          <p className="text-black/50 text-sm">{user?.email}</p>
 
           <div className="mt-2">
-            {user.emailVerified ? (
+            {user?.emailVerified ? (
               <span className="badge badge-success">Verified</span>
             ) : (
               <span className="badge badge-warning">Not Verified</span>
@@ -40,7 +40,7 @@ const Profile = ({ user }) => {
 
           <p className="text-xs text-gray-400 mt-2">
             Joined{" "}
-            {new Date(user.createdAt).toLocaleDateString("en-BD", {
+            {new Date(user?.createdAt).toLocaleDateString("en-BD", {
               year: "numeric",
               month: "long",
               day: "numeric",
