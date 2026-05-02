@@ -4,8 +4,8 @@ import React from "react";
 
 const Footer = () => {
   const socialLinks = [
-    "/assets/instagram.png",
     "/assets/facebook.png",
+    "/assets/Instagram.png",
     "/assets/twitter.png",
   ];
 
