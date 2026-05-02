@@ -10,9 +10,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-amber-50 text-black/60 my-20 px-4 md:px-0">
+    <footer className="bg-amber-50 text-black/60 mt-20 px-4 md:px-0">
       <div className="container mx-auto py-12 md:py-16 flex flex-col md:flex-row gap-10">
-        {/* Left Section */}
         <div className="flex flex-col gap-4 flex-1">
           <div className="flex items-center gap-1 text-2xl md:text-3xl font-semibold text-amber-500">
             <Sun strokeWidth={2.2} size={32} className="md:w-9 md:h-9" />
@@ -33,9 +32,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16">
-          {/* Quick Links */}
           <div className="flex flex-col gap-3">
             <h2 className="font-semibold text-lg text-black/80">Quick Links</h2>
             <p>Privacy Policy</p>
@@ -43,7 +40,6 @@ const Footer = () => {
             <p>Cookies</p>
           </div>
 
-          {/* Contact */}
           <div className="flex flex-col gap-3">
             <h2 className="font-semibold text-lg text-black/80">Contact</h2>
 

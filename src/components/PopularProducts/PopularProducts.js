@@ -2,6 +2,7 @@ import fetchProducts from "@/lib/fetchProducts";
 import Image from "next/image";
 import Link from "next/link";
 import React, { use } from "react";
+import "animate.css";
 
 const PopularProducts = () => {
   const productPromise = fetchProducts();
@@ -54,7 +55,7 @@ const PopularProducts = () => {
               <div className="card-actions justify-end">
                 <Link
                   href={`/products/${product.id}`}
-                  className="btn bg-amber-500 btn-block"
+                  className="btn bg-amber-500 btn-block animate__animated animate__flash animate__infinite "
                 >
                   View Details
                 </Link>
