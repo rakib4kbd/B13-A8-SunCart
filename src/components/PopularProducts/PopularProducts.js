@@ -5,7 +5,9 @@ import React, { use } from "react";
 
 const PopularProducts = () => {
   const productPromise = fetchProducts();
-  const products = use(productPromise);
+  const productsRaw = use(productPromise);
+  const products = productsRaw.filter((item) => item.popular);
+
   return (
     <div className="container mx-auto my-20">
       <div className="flex items-center justify-between my-5">

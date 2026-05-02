@@ -54,7 +54,7 @@ const CareTips = () => {
             <h1 className="text-xl text-black/80">{item.title}</h1>
             <p className="text-sm text-black/50">{item.content}</p>
             <Link
-              href={"/products"}
+              href={"/#"}
               className="text-amber-500 text-sm flex items-center gap-0.5"
             >
               <p>READ ARTICLE</p>
