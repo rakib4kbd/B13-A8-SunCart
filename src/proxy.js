@@ -7,7 +7,6 @@ export const proxy = async (request) => {
     headers: await headers(),
   });
 
-  console.log(session?.user);
   if (session?.user) {
     return NextResponse.next();
   }

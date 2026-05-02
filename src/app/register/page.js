@@ -19,7 +19,6 @@ const RegisterPage = () => {
   };
 
   const handleGoogleLogin = () => {
-    console.log("google");
     signIn.social({
       provider: "google",
     });

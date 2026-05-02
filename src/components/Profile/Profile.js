@@ -1,17 +1,29 @@
 import { CircleUserRoundIcon } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 import ProfileActions from "./ProfileActions/ProfileActions";
+import Image from "next/image";
 
 const Profile = ({ user }) => {
   return (
-    <div className="card w-full shadow-xl border-t border-t-amber-500">
+    <div className="card w-full shadow-xl">
       <figure />
 
       <div className="card-body items-center text-center">
-        <div className="flex items-center justify-center">
-          <CircleUserRoundIcon size={200} />
-        </div>
+        {user.image ? (
+          <div className="border border-amber-500 rounded-full ">
+            <Image
+              src={user.image}
+              alt={user.name}
+              width={200}
+              height={200}
+              className="rounded-full"
+            />
+          </div>
+        ) : (
+          <div className="flex items-center justify-center">
+            <CircleUserRoundIcon size={200} />
+          </div>
+        )}
 
         <div className="flex flex-col items-center justify-center">
           <h2 className="card-title text-xl font-bold">{user.name}</h2>

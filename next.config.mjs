@@ -19,6 +19,11 @@ const nextConfig = {
         hostname: "cdn.brandfetch.io",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "*",
+        pathname: "/**",
+      },
     ],
   },
 };

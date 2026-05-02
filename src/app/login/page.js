@@ -15,11 +15,9 @@ const RegisterPage = () => {
       password: password,
       callbackURL: "http://localhost:3000/",
     });
-    console.log(data, error);
   };
 
   const handleGoogleLogin = () => {
-    console.log("google");
     signIn.social({
       provider: "google",
     });

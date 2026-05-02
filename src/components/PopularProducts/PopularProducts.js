@@ -26,15 +26,28 @@ const PopularProducts = () => {
               <Image
                 src={product.image}
                 alt={product.image}
-                width={1000}
-                height={100}
+                fill
+                className="rounded-2xl"
               />
             </figure>
             <div className="card-body justify-end">
               <h2 className="card-title">{product.name}</h2>
               <div className="flex justify-between">
-                <div className="text-sm">{product.rating}*</div>
-                <div className="text-xl font-semibold">$19</div>
+                <div className="rating rating-xs text-sm text-black/60">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="mask mask-star bg-amber-500"
+                      aria-label="1 star"
+                      aria-current={
+                        i < Math.round(Number(product.rating))
+                          ? "true"
+                          : "false"
+                      }
+                    ></div>
+                  ))}
+                </div>
+                <div className="text-2xl font-semibold">$19</div>
               </div>
               <div className="card-actions justify-end">
                 <Link

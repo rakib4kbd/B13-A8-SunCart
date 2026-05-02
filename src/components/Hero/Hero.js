@@ -84,12 +84,12 @@ export default function App() {
               <SwiperSlide key={slide.id}>
                 <div className="relative w-full">
                   <div className="card bg-base-100 image-full">
-                    <figure>
+                    <figure className="aspect-2/1">
                       <Image
-                        width={2000}
-                        height={300}
                         src={slide.imgSrc}
                         alt={slide.title}
+                        fill
+                        className="rounded-2xl"
                       />
                     </figure>
 

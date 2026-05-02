@@ -44,7 +44,7 @@ const CareTips = () => {
         {careTips.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col p-6 items-start gap-3 shadow-xl rounded-2xl"
+            className="flex flex-col p-6 items-start gap-3 shadow-xl border border-amber-500 rounded-2xl"
           >
             <span
               className={`flex rounded-full w-10 h-10 items-center justify-center ${item.bg} ${item.fg}`}
