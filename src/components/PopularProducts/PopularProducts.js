@@ -37,9 +37,12 @@ const PopularProducts = () => {
                 <div className="text-xl font-semibold">$19</div>
               </div>
               <div className="card-actions justify-end">
-                <button className="btn bg-amber-500 btn-block">
+                <Link
+                  href={`/products/${product.id}`}
+                  className="btn bg-amber-500 btn-block"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>

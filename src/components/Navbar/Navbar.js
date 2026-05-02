@@ -83,14 +83,7 @@ const Navbar = () => {
                 <Link href={"/profile"}>My Profile</Link>
               </li>
               <li>
-                <Link
-                  href={"#"}
-                  onClick={() => {
-                    setIsLoggedIn(false);
-                  }}
-                >
-                  Log Out
-                </Link>
+                <Link href={"#"}>Log Out</Link>
               </li>
             </ul>
           </div>

@@ -34,3 +34,56 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# ✅ Fix: Run MongoDB as a Replica Set (Docker)
+
+## 🚀 Step 1: Start Mongo with replica set enabled
+
+```bash
+docker run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  -v mongodb_data:/data/db \
+  mongo --replSet rs0
+```
+
+---
+
+## 🚀 Step 2: Initialize the replica set
+
+Run this:
+
+```bash
+docker exec -it mongodb mongosh
+```
+
+Then inside the shell:
+
+```js
+rs.initiate();
+```
+
+You should see:
+
+```js
+{
+  ok: 1;
+}
+```
+
+---
+
+## ✅ Done!
+
+Now your same connection string works:
+
+```bash
+mongodb://localhost:27017
+```
+
+And:
+
+- ✅ Transactions work
+- ✅ Your auth signup won’t crash
+
+---
