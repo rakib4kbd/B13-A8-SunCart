@@ -15,19 +15,7 @@ const Brands = () => {
   return (
     <div className="container mx-auto my-20 px-2 md:px-0">
       <h1 className="text-3xl font-semibold text-amber-500">Top Brands</h1>
-      <div className="my-5 grid grid-cols-2 md:hidden items-center justify-center gap-6">
-        {brandList.map((brand, index) => (
-          <div key={index} className="relative w-24 h-24 mx-auto">
-            <Image
-              src={brand.image}
-              fill
-              alt={brand.name}
-              className="object-contain"
-            />
-          </div>
-        ))}
-      </div>
-      <Marquee className="hidden md:block">
+      <Marquee>
         {brandList.map((brand, index) => (
           <div key={index} className="relative w-24 h-24 mx-25">
             <Image
