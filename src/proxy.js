@@ -10,11 +10,11 @@ export const proxy = async (request) => {
   if (session?.user) {
     return NextResponse.next();
   }
-  return NextResponse.redirect(new URL("/login", request.url));
-};
 
-// Alternatively, you can use a default export:
-// export default function proxy(request) { ... }
+  const loginUrl = new URL("/login", request.url);
+  loginUrl.searchParams.set("callbackUrl", request.nextUrl.pathname);
+  return NextResponse.redirect(loginUrl);
+};
 
 export const config = {
   matcher: ["/products/:path", "/profile", "/profile/edit"],

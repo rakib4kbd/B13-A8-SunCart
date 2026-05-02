@@ -2,24 +2,27 @@
 
 import { authClient, signIn, useSession } from "@/lib/auth-client";
 import { useForm } from "react-hook-form";
-import React, { use } from "react";
+import React from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
-const RegisterPage = () => {
+const LoginPage = () => {
   const { register, handleSubmit } = useForm();
+  const params = useSearchParams();
 
   const onSubmit = async (formData) => {
     const { email, password } = formData;
     const { data, error } = await authClient.signIn.email({
       email: email,
       password: password,
-      callbackURL: "http://localhost:3000/",
+      callbackURL: params.get("callbackUrl"),
     });
   };
 
   const handleGoogleLogin = () => {
     signIn.social({
       provider: "google",
+      callbackURL: params.get("callbackUrl"),
     });
   };
 
@@ -73,4 +76,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

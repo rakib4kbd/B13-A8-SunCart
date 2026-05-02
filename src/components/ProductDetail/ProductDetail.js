@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductDetail = ({ product }) => {
-  console.log(product);
   return (
     <div className="container mx-auto my-20 px-4">
       <div className="flex flex-row border rounded-2xl">
