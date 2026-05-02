@@ -1,10 +1,25 @@
 import ProductDetail from "@/components/ProductDetail/ProductDetail";
 import fetchProducts from "@/lib/fetchProducts";
-import { Prosto_One } from "next/font/google";
-import Link from "next/link";
-import React, { use } from "react";
+import React from "react";
 
 const products = await fetchProducts();
+
+export const generateMetadata = async ({ params }) => {
+  const { productId } = await params;
+  const product = products.find((item) => item.id == productId);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+      description: "This product does not exist",
+    };
+  }
+
+  return {
+    title: product.name,
+    description: product.description || "Product details page",
+  };
+};
 
 const ProductDetails = async ({ params }) => {
   const { productId } = await params;

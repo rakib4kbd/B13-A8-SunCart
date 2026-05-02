@@ -4,6 +4,12 @@ import { CategoryProvider } from "@/context/CategoryContext";
 import fetchProducts from "@/lib/fetchProducts";
 import React, { use } from "react";
 
+export const metadata = {
+  title: "Shop | Sun Cart",
+  description:
+    "Instant Vacation. Your premium destination for summer lifestyle and sun-care essentials.",
+};
+
 const ProductsPage = () => {
   const productPromise = fetchProducts();
   const products = use(productPromise);
