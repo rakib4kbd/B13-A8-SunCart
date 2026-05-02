@@ -1,4 +1,4 @@
-import { Sun } from "lucide-react";
+import { Sun, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -10,45 +10,64 @@ const Footer = () => {
   ];
 
   return (
-    <div className="px-2 my-5">
-      <div className="flex flex-col gap-10 items-center justify-center container mx-auto">
-        <div className="flex flex-col gap-3 pt-20 items-center justify-center text-center">
-          <div className="flex items-center gap-0.5 text-4xl font-semibold text-amber-500">
-            <Sun strokeWidth={2.5} height={50} width={50} />
+    <footer className="bg-amber-50 text-black/60 mt-10">
+      <div className="container mx-auto px-4 py-16 grid grid-cols-3 gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-1 text-3xl font-semibold text-amber-500">
+            <Sun strokeWidth={2.2} size={36} />
             <p>SunCart</p>
           </div>
-          <p className="text-sm text-black/70">
-            Instant Vacation.
-            <br /> Your premium destination for summer lifestyle and sun-care
-            essentials.
+          <p className="text-sm text-black/60 max-w-sm">
+            Instant Vacation. Your premium destination for summer lifestyle and
+            sun-care essentials.
           </p>
 
-          <div className="flex flex-col justify-center items-center gap-2">
-            <h1 className="text-xl">Social Links</h1>
-            <div className="flex gap-4 items-center justify-center">
-              {socialLinks.map((link, index) => (
-                <Image
-                  src={link}
-                  key={index}
-                  alt={link}
-                  width={40}
-                  height={40}
-                />
-              ))}
-            </div>
+          <div className="flex gap-3">
+            {socialLinks.map((link, index) => (
+              <div key={index} className="p-3 rounded-full relative">
+                <Image src={link} alt={link} fill className="object-contain" />
+              </div>
+            ))}
           </div>
         </div>
-        <div className="border border-b-white/25 w-full"></div>
-        <div className="flex flex-col-reverse md:flex-row items-center pb-7.5 text-black/60 gap-3 w-full">
-          <p className="md:me-auto">© 2026 SunCart. All rights reserved.</p>
-          <div className="flex gap-3">
-            <p>Privacy Policy</p>
-            <p>Terms of Service</p>
-            <p>Cookies</p>
+
+        <div className="flex flex-col gap-3">
+          <h2 className="font-semibold text-lg text-black/80">Quick Links</h2>
+          <p>Privacy Policy</p>
+          <p>Terms of Service</p>
+          <p>Cookies</p>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h2 className="font-semibold text-lg text-black/80">Contact</h2>
+
+          <a
+            href="mailto:support@suncart.com"
+            className="flex items-center gap-2 text-sm"
+          >
+            <Mail size={16} />
+            support@suncart.com
+          </a>
+
+          <a
+            href="tel:+8801234567890"
+            className="flex items-center gap-2 text-sm"
+          >
+            <Phone size={16} />
+            +880 1234-567890
+          </a>
+
+          <div className="flex items-center gap-2 text-sm">
+            <MapPin size={16} />
+            Dhaka, Bangladesh
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="border-t border-amber-100 py-5 text-center text-sm text-gray-500">
+        © 2026 SunCart. All rights reserved.
+      </div>
+    </footer>
   );
 };
 
