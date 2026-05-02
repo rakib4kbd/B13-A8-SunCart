@@ -17,7 +17,6 @@ const RegisterPage = () => {
   const router = useRouter();
 
   const session = useSession();
-  console.log("session:", session);
   if (session?.data) {
     router.push("/");
   }
@@ -29,7 +28,7 @@ const RegisterPage = () => {
       email: email,
       password: password,
       image: photoUrl,
-      callbackURL: "http://localhost:3000/login",
+      callbackURL: "/login",
     });
 
     if (error) {

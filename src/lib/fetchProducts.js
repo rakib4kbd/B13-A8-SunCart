@@ -1,6 +1,8 @@
+import products from "@/data/products";
+
 const fetchProducts = async () => {
-  const res = await fetch("http://localhost:3000/products.json");
-  return res.json();
+  const res = await products;
+  return res;
 };
 
 export default fetchProducts;
