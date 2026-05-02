@@ -6,7 +6,6 @@ import React, { useContext } from "react";
 
 const ProductsByCategory = ({ products }) => {
   const { selectedCategory } = useContext(CategoryContext);
-  console.log(selectedCategory);
   const filteredProducts = products.filter(
     (product) =>
       product.category.toLowerCase() === selectedCategory.toLowerCase(),

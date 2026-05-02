@@ -4,7 +4,7 @@ import Link from "next/link";
 import Logo from "../Logo/Logo";
 import { usePathname } from "next/navigation";
 import { CircleUserRound } from "lucide-react";
-import { useState } from "react";
+import { signOut, useSession } from "@/lib/auth-client";
 
 const Navbar = () => {
   const navLinks = [
@@ -13,7 +13,8 @@ const Navbar = () => {
   ];
 
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { data, isPending } = useSession();
+  const user = data?.user;
 
   return (
     <div className="navbar bg-base-100 shadow-sm px-2 md:px-5">
@@ -40,8 +41,8 @@ const Navbar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {navLinks.map((nav, index) => (
-              <li key={index}>
+            {navLinks.map((nav) => (
+              <li key={nav.navigation}>
                 <Link href={nav.navigation}>{nav.label}</Link>
               </li>
             ))}
@@ -57,7 +58,11 @@ const Navbar = () => {
             <li key={index}>
               <Link
                 href={nav.navigation}
-                className={`${nav.navigation == pathname && "text-amber-500 border-b-3 border-b-amber-500"} btn btn-ghost flex items-center justify-center flex-row px-4 gap-1`}
+                className={`btn btn-ghost flex items-center justify-center flex-row px-4 gap-1 ${
+                  nav.navigation === pathname
+                    ? "text-amber-500 border-b-3 border-b-amber-500"
+                    : ""
+                }`}
               >
                 {nav.label}
               </Link>
@@ -66,7 +71,11 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {isLoggedIn ? (
+        {isPending ? (
+          <div className="flex items-center justify-center">
+            <span className="loading loading-spinner"></span>
+          </div>
+        ) : user ? (
           <div className="dropdown dropdown-bottom dropdown-end">
             <div
               tabIndex={0}
@@ -83,30 +92,34 @@ const Navbar = () => {
                 <Link href={"/profile"}>My Profile</Link>
               </li>
               <li>
-                <Link href={"#"}>Log Out</Link>
+                <button
+                  onClick={async () => {
+                    await signOut();
+                  }}
+                >
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
         ) : (
           <ul className="flex">
-            <Link
-              href={"/login"}
-              className={`${pathname == "/login" && "text-amber-500 border-b-3 border-b-amber-500"} btn btn-ghost flex items-center justify-center flex-row px-4 gap-1`}
-              onClick={() => {
-                setIsLoggedIn(true);
-              }}
-            >
-              Login
-            </Link>
-            <Link
-              href={"/register"}
-              className={`${pathname == "/register" && "border-b-3 border-b-amber-600"} btn text-white flex items-center justify-center flex-row px-4 gap-1 bg-amber-500`}
-              onClick={() => {
-                setIsLoggedIn(true);
-              }}
-            >
-              Register
-            </Link>
+            <li>
+              <Link
+                href={"/login"}
+                className={`${pathname == "/login" && "text-amber-500 border-b-3 border-b-amber-500"} btn btn-ghost flex items-center justify-center flex-row px-4 gap-1`}
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/register"}
+                className={`${pathname == "/register" && "border-b-3 border-b-amber-600"} btn text-white flex items-center justify-center flex-row px-4 gap-1 bg-amber-500`}
+              >
+                Register
+              </Link>
+            </li>
           </ul>
         )}
       </div>
