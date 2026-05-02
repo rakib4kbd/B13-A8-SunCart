@@ -30,7 +30,7 @@ const ProfilePage = async () => {
   const user = session?.user;
 
   return (
-    <div className="container mx-auto my-20 flex justify-center">
+    <div className="container mx-auto my-20 flex justify-center px-2 md:px-0">
       <Profile user={user} />
     </div>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 const ProductDetail = ({ product }) => {
   return (
     <div className="container mx-auto my-20 px-4">
-      <div className="flex flex-row border border-amber-500 rounded-2xl">
+      <div className="flex flex-col md:flex-row border border-amber-500 rounded-2xl">
         <div className="p-6 flex flex-col relative">
           <div className="absolute flex w-full justify-start bottom-10 -right-10">
             {product.popular && (
@@ -18,8 +18,8 @@ const ProductDetail = ({ product }) => {
             className="rounded-2xl"
           />
         </div>
-        <div className="p-6 flex flex-col flex-1 justify-between">
-          <div className="flex flex-col gap-4">
+        <div className="p-6 flex-1 flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-black/60">Brand: {product.brand}</p>
               <p className="text-sm text-black/60">
@@ -31,6 +31,8 @@ const ProductDetail = ({ product }) => {
               ${product.price}
             </h1>
             <p className="text-black/60 text-sm">{product.description}</p>
+          </div>
+          <div className="flex flex-col gap-4 mt-auto">
             <div className="flex justify-between">
               <div className="rating rating-sm text-sm text-black/60">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -56,11 +58,10 @@ const ProductDetail = ({ product }) => {
                 </p>
               </div>
             </div>
+            <button className="btn btn-block bg-amber-500 rounded-lg">
+              Buy Now
+            </button>
           </div>
-
-          <button className="btn btn-block bg-amber-500 rounded-lg">
-            Buy Now
-          </button>
         </div>
       </div>
     </div>

@@ -12,9 +12,9 @@ const brandList = [
 
 const Brands = () => {
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto my-20 px-2 md:px-0">
       <h1 className="text-3xl font-semibold text-amber-500">Top Brands</h1>
-      <div className="my-5 grid grid-cols-6 items-center justify-center gap-6">
+      <div className="my-5 grid grid-cols-2 md:grid-cols-6 items-center justify-center gap-6">
         {brandList.map((brand, index) => (
           <div key={index} className="relative w-24 h-24 mx-auto">
             <Image

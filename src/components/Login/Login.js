@@ -46,7 +46,7 @@ const Login = ({ searchParams }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <button
-        className="btn bg-amber-500 gap-2 w-md"
+        className="btn bg-amber-500 gap-2 w-sm md:w-md"
         onClick={() => {
           handleGoogleLogin();
         }}
@@ -56,7 +56,7 @@ const Login = ({ searchParams }) => {
       </button>
       <div className="divider"> Or </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-md border p-4">
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm md:w-md border p-4">
           <legend className="fieldset-legend">Login</legend>
 
           <label className="label">Email</label>

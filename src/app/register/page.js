@@ -48,10 +48,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto my-20 px-2 md:px-0">
       <div className="flex flex-col items-center justify-center">
         <button
-          className="btn bg-amber-500 gap-2 w-md"
+          className="btn bg-amber-500 gap-2 w-sm md:w-md"
           onClick={() => {
             handleGoogleLogin();
           }}
@@ -67,7 +67,7 @@ const RegisterPage = () => {
         <div className="divider">Or</div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-md border p-4">
+          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm md:w-md border p-4">
             <legend className="fieldset-legend">Register</legend>
 
             <label className="label">Name</label>

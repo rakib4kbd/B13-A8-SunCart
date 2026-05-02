@@ -63,7 +63,7 @@ export default function App() {
     },
   ];
   return (
-    <div className="my-2 md:my-20">
+    <div className="my-5 px-2 md:px-0 md:my-20">
       <div className="container mx-auto">
         <div className="relative">
           <Swiper
@@ -93,10 +93,9 @@ export default function App() {
                       />
                     </figure>
 
-                    <div className="card-body grid grid-cols-16">
-                      <div></div>
-
-                      <div className="flex flex-col items-start justify-center col-span-12 gap-3">
+                    <div className="card-body grid md:px-20">
+                      <div className="flex flex-col items-center md:items-start justify-around md:justify-center gap-3 min-h-100">
+                        <div></div>
                         <div className="flex flex-col items-start gap-3">
                           <h2 className="card-title text-4xl">{slide.title}</h2>
                           <p className="text-lg">{slide.subtitle}</p>

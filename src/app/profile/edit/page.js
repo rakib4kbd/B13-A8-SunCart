@@ -29,7 +29,7 @@ const ProfileEditPage = async () => {
   });
   const user = session?.user;
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto my-20 px-2 md:px-0">
       <ProfileEdit user={user} />
     </div>
   );

@@ -14,44 +14,45 @@ const ProductsByCategory = ({ products }) => {
     <>
       {selectedCategory.toLowerCase() === "all"
         ? products.map((product) => (
-            <div
-              key={product.id}
-              className="card bg-base-100 shadow-xl image-full h-120"
-            >
-              <figure>
+            <div key={product.id} className="card bg-base-100 shadow-sm">
+              <figure className="relative aspect-square md:aspect-9/10">
                 <Image
                   src={product.image}
                   alt={product.image}
                   fill
-                  className="rounded-2xl"
+                  className="object-cover"
                 />
               </figure>
-              <div className="card-body justify-end">
-                <h2 className="card-title">{product.name}</h2>
-                <div className="flex justify-between">
-                  <div className="rating rating-xs text-sm text-black/60">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="mask mask-star bg-amber-500"
-                        aria-label="1 star"
-                        aria-current={
-                          i < Math.round(Number(product.rating))
-                            ? "true"
-                            : "false"
-                        }
-                      ></div>
-                    ))}
+              <div className="card-body justify-between gap-0 md:gap-2 p-2 md:p-3">
+                <h2 className="card-title text-sm md:text-base font-medium md:font-semibold">
+                  {product.name}
+                </h2>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <div className="rating rating-xs items-center text-sm text-black/60">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className="mask mask-star bg-amber-500"
+                          aria-label="1 star"
+                          aria-current={
+                            i < Math.round(Number(product.rating))
+                              ? "true"
+                              : "false"
+                          }
+                        ></div>
+                      ))}
+                    </div>
+                    <div className="text-xl font-semibold">$19</div>
                   </div>
-                  <div className="text-xl font-semibold">$19</div>
-                </div>
-                <div className="card-actions justify-end">
-                  <Link
-                    href={`/products/${product.id}`}
-                    className="btn bg-amber-500 btn-block rounded-sm"
-                  >
-                    View Details
-                  </Link>
+                  <div className="card-actions justify-end">
+                    <Link
+                      href={`/products/${product.id}`}
+                      className="btn btn-sm md:btn-md bg-amber-500 btn-block rounded-sm"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

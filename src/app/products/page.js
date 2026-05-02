@@ -23,21 +23,18 @@ const ProductsPage = () => {
 
   return (
     <CategoryProvider>
-      <div className="container mx-auto my-20">
-        <div className="flex items-center justify-between my-5"></div>
+      <div className="container mx-auto md:my-20 px-2 md:px-0">
+        <div className="flex items-center justify-between"></div>
         <div className="grid grid-cols-5">
-          <div>
+          <div className="hidden md:block">
             <h1 className="text-2xl font-semibold text-amber-500">
               Categories
             </h1>
 
             <ProductCategorySelector productCategory={productCategory} />
           </div>
-          <div className="col-span-4">
-            {/* <h1 className="text-3xl font-semibold text-amber-500">
-            All Products
-          </h1> */}
-            <div className="grid grid-cols-3 grid-rows-2 gap-4 my-3 ">
+          <div className="col-span-5 md:col-span-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 my-3 ">
               <ProductsByCategory products={products} />
             </div>
           </div>

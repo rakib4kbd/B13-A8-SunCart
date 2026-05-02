@@ -35,12 +35,12 @@ const careTips = [
 
 const CareTips = () => {
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto my-20 px-2 md:px-0">
       <h1 className="text-3xl font-semibold text-amber-500">
         Summer Care Tips
       </h1>
 
-      <div className="grid grid-cols-3 gap-4 my-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-5">
         {careTips.map((item, index) => (
           <div
             key={index}
