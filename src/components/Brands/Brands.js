@@ -17,7 +17,7 @@ const Brands = () => {
       <h1 className="text-3xl font-semibold text-amber-500">Top Brands</h1>
       <Marquee>
         {brandList.map((brand, index) => (
-          <div key={index} className="relative w-24 h-24 mx-25">
+          <div key={index} className="relative w-24 h-24 mx-5 md:mx-25">
             <Image
               src={brand.image}
               fill
