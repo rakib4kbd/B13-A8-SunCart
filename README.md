@@ -1,89 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Suncart
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+**Suncart** is an online e-commerce platform built with Next.js, designed for browsing and purchasing sun care and summer protection products. It provides a seamless shopping experience with user authentication, product categorization, shopping cart functionality, and profile management.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Purpose
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To offer customers a convenient way to shop for essential sun protection items like sunscreen, skincare products, and accessories, ensuring they stay safe and stylish during sunny seasons.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Live URL
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deployed at [https://b13-a8-sun-cart-sand.vercel.app/](https://b13-a8-sun-cart-sand.vercel.app/).
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- **User Authentication**: Secure login and registration using Better Auth with MongoDB adapter.
+- **Product Browsing**: Explore products by categories
+- **Product Details**: View detailed information, ratings, and stock for each product.
+- **Shopping Cart**: Add, remove, and manage items in the cart with context-based state management.
+- **Profile Management**: View and edit user profiles.
+- **Responsive Design**: Built with Tailwind CSS and DaisyUI for a modern, mobile-friendly interface.
+- **Animations**: Smooth animations using Animate.css and React Fast Marquee for dynamic elements.
+- **Image Carousels**: Interactive sliders powered by Swiper for hero banners and product showcases.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
 
-## Deploy on Vercel
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **React**: UI library for building interactive components.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **DaisyUI**: Component library built on Tailwind CSS.
+- **Lucide React**: Icon library for consistent UI elements.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Backend & Database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Better Auth**: Authentication library with MongoDB adapter for secure user management.
+- **MongoDB**: NoSQL database for storing user data, products, and sessions.
 
-# ✅ Fix: Run MongoDB as a Replica Set (Docker)
+### Additional Libraries
 
-## 🚀 Step 1: Start Mongo with replica set enabled
+- **Animate.css**: CSS animations for enhanced user experience.
+- **React Fast Marquee**: For scrolling marquee effects.
+- **React Hook Form**: Form handling with validation.
+- **React Hot Toast**: Toast notifications for user feedback.
+- **Swiper**: Touch-enabled sliders and carousels.
 
-```bash
-docker run -d \
-  --name mongodb \
-  -p 27017:27017 \
-  -v mongodb_data:/data/db \
-  mongo --replSet rs0
-```
+## Installation
 
----
+1. **Clone the repository**:
 
-## 🚀 Step 2: Initialize the replica set
+   ```bash
+   git clone https://github.com/rakib4kbd/B13-A8-SunCart.git
+   cd B13-A8-SunCart
+   ```
 
-Run this:
+2. **Install dependencies**:
+   Since this project uses pnpm, run:
 
-```bash
-docker exec -it mongodb mongosh
-```
+   ```bash
+   pnpm install
+   ```
 
-Then inside the shell:
+3. **Set up environment variables**:
+   Create a `.env.local` file in the root directory and add necessary variables (e.g., MongoDB connection string, auth secrets).
 
-```js
-rs.initiate();
-```
+4. **Set up MongoDB**:
+   Ensure MongoDB is running.
 
-You should see:
+5. **Run the development server**:
+   ```bash
+   pnpm dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```js
-{
-  ok: 1;
-}
-```
+## License
 
----
-
-## ✅ Done!
-
-Now your same connection string works:
-
-```bash
-mongodb://localhost:27017
-```
-
-And:
-
-- ✅ Transactions work
-- ✅ Your auth signup won’t crash
-
----
+This project is private and not licensed for public use.
