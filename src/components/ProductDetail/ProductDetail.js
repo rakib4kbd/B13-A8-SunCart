@@ -1,8 +1,10 @@
 import Image from "next/image";
+import ProductBuyButton from "./ProductBuyButton/ProductBuyButton";
+import { CartProvider } from "@/context/CartContext";
 
 const ProductDetail = ({ product }) => {
   return (
-    <div className="container mx-auto my-20 px-4">
+    <div className="container mx-auto my-5 md:my-20 px-2">
       <div className="flex flex-col md:flex-row border border-amber-500 rounded-2xl">
         <div className="p-6 flex flex-col relative">
           <div className="absolute flex w-full justify-start bottom-10 -right-10">
@@ -58,9 +60,7 @@ const ProductDetail = ({ product }) => {
                 </p>
               </div>
             </div>
-            <button className="btn btn-block bg-amber-500 rounded-lg">
-              Buy Now
-            </button>
+            <ProductBuyButton product={product} />
           </div>
         </div>
       </div>

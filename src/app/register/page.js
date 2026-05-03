@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import { Eye } from "lucide-react";
 import { EyeOff } from "lucide-react";
 

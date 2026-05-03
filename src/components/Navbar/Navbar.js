@@ -8,9 +8,12 @@ import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import { LogOut } from "lucide-react";
 import { Menu } from "lucide-react";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { ShoppingCart } from "lucide-react";
+import CartContext from "@/context/CartContext";
 
 const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
   const dropdownRef = useRef();
   const navLinks = [
     { label: "Home", navigation: "/" },
@@ -52,7 +55,16 @@ const Navbar = () => {
           </div>
         ) : user ? (
           <div className="dropdown dropdown-bottom dropdown-end">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 relative">
+              <Link
+                href="/cart"
+                className="relative flex items-center justify-center"
+              >
+                <ShoppingCart />
+                <span className="absolute text-xs -top-2 right-1">
+                  {cartItems.length}
+                </span>
+              </Link>
               {user?.image ? (
                 <Link href={"/profile"} className="relative w-10 h-10">
                   <Image
